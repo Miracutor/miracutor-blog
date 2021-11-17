@@ -7,7 +7,6 @@
     "frontity"
   ],
   "engines": {
-    "node": "14.x",
     "npm": ">=7.0.0"
   },
   "scripts": {
