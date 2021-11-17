@@ -39,8 +39,6 @@ This will create a `/build` folder with a `server.js` (a [serverless function](h
 
 Your app is ready to be deployed.
 
-> Get more info about [Frontity's architecture](https://docs.frontity.org/architecture)
-
 ### License
 
 To be honest, I still don't know what the license I am going to use for this website. So, for now, I will wait until I finished creating the website to decide.
