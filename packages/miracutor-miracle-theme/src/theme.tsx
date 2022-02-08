@@ -1,8 +1,13 @@
 import React from "react";
 import { createTheme } from "@mui/material/styles";
 import Link from "@frontity/components/link";
+import { LinkProps } from "@frontity/components/link/types";
+import { LinkProps as MuiLinkProps } from "@mui/material/Link";
 
-const FrontityLink = React.forwardRef((props, ref) => {
+const FrontityLink = React.forwardRef<
+  any,
+  Omit<LinkProps, "link"> & { href: LinkProps["link"] }
+>((props, ref) => {
   const { href, ...other } = props;
   return <Link link={href} {...other} />;
 });
@@ -14,7 +19,7 @@ const theme = createTheme({
       defaultProps: {
         component: FrontityLink,
         color: "secondary",
-      },
+      } as MuiLinkProps,
     },
   },
   palette: {

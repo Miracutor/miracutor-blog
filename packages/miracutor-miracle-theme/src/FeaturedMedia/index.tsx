@@ -3,10 +3,18 @@ import { styled } from "@mui/material/styles";
 import Img from "@frontity/components/image";
 import Box from "@mui/system/Box";
 
-const FeaturedMedia = (props) => {
-  const { media } = props;
+type FeaturedMediaProps = {
+  media: any;
+};
+
+interface FrontityMediaSizesObject {
+  source_url: string;
+  width: number;
+}
+
+const FeaturedMedia = ({ media }: FeaturedMediaProps) => {
   const srcset =
-    Object.values(media.media_details.sizes)
+    Object.values<FrontityMediaSizesObject>(media.media_details.sizes)
       // Get the url and width of each size.
       .map((item) => [item.source_url, item.width])
       // Recude them to a string with the format required by `srcset`.

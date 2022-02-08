@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, decode, loadable } from "frontity";
+import { connect, decode, Head, loadable } from "frontity";
 import Img from "@frontity/components/image";
 import FeaturedMedia from "../FeaturedMedia";
 import Container from "@mui/material/Container";
@@ -11,20 +11,17 @@ import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
 import LabelRoundedIcon from "@mui/icons-material/LabelRounded";
-//import { DiscussionEmbed } from "disqus-react";
-//import { WPBlockImg } from "./ViewImage";
-import ViewAuthorDate from "./ViewAuthorDate";
+import AuthorDateComponent from "./AuthorDateComponent";
+import { useCustomSsrMatchMedia } from "../utils";
 
 const DiscussionEmbed = loadable(() => import("disqus-react"), {
   resolveComponent: (components) => components.DiscussionEmbed,
 });
-const WPBlockImg = loadable(() => import("./ViewImage"), {
-  resolveComponent: (components) => components.WPBlockImg,
-});
 
-const View = ({ state, libraries }) => {
+const Post = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
   const post = state.source[data.type][data.id];
   const media = state.source.attachment[post.featured_media];
@@ -32,37 +29,36 @@ const View = ({ state, libraries }) => {
   const Html2React = libraries.html2react.Component;
   // Get all tags
   const allTags = state.source.tag;
-  const tags = post.tags && post.tags.map((tagId) => allTags[tagId]);
+  const tags = post.tags && post.tags.map((tagId: number) => allTags[tagId]);
   // Get all categories
   const allCategories = state.source.category;
   const categories =
-    post.categories && post.categories.map((catId) => allCategories[catId]);
+    post.categories &&
+    post.categories.map((catId: number) => allCategories[catId]);
+  const postTitle = decode(post.title.rendered.replace("&nbsp;", " "));/*workaround*/
+
+  const { ssrMatchMedia } = useCustomSsrMatchMedia(state.theme.userAgent);
+  const fetchMobileStatus = () => useMediaQuery("(max-width:768px)", { ssrMatchMedia });
 
   return (
     <>
-      <Container>
-        <Card variant="outlined" sx={{ p: 3 }}>
+      <Head>
+        <title>{postTitle} – {state.frontity.title}</title>
+      </Head>
+      <Container sx={{ px: 0 }}>
+        <Card variant="outlined" sx={{ py: 3, px: 1 }}>
           {media && <CardMedia component={FeaturedMedia} media={media} />}
           <CardContent>
             <Typography
-              variant="h4"
+              variant={fetchMobileStatus() ? "h5" : "h4"}
               textAlign={"center"}
               color={"secondary"}
               gutterBottom
             >
-              {decode(post.title.rendered.replace("&nbsp;", " "))}
-              {/*workaround*/}
+              {postTitle}
             </Typography>
             {data.isPost && (
-              <ViewAuthorDate authorName={author.name} date={post.date} />
-              // <Typography
-              //   variant="subtitle2"
-              //   textAlign={"center"}
-              //   sx={{ mb: 3, mt: 2 }}
-              // >
-              //   <PersonRoundedIcon sx={{ mb: -0.5 }} /> {author.name}{" "}
-              //   <EventRoundedIcon sx={{ mb: -0.5 }} /> {formattedDate}
-              // </Typography>
+              <AuthorDateComponent authorName={author.name} date={post.date} />
             )}
             <Html2React html={post.content.rendered} />
             {data.isPost && tags && tags.length !== 0 && (
@@ -79,7 +75,7 @@ const View = ({ state, libraries }) => {
                       return (
                         <Link
                           key={"tag-" + t.name + "-" + t.link}
-                          link={t.link}
+                          href={t.link}
                         >
                           {decode(t.name)}
                         </Link>
@@ -95,7 +91,7 @@ const View = ({ state, libraries }) => {
                 {categories &&
                   categories.map((c) => {
                     return (
-                      <Link key={"cat-" + c.name + "-" + c.link} link={c.link}>
+                      <Link key={"cat-" + c.name + "-" + c.link} href={c.link}>
                         {decode(c.name)}
                       </Link>
                     );
@@ -108,17 +104,17 @@ const View = ({ state, libraries }) => {
           <Card variant="outlined" sx={{ p: 3, mt: 2, bgcolor: "grey.300" }}>
             <Grid container spacing={1}>
               <Grid item xs={12} md={3}>
-                <WPBlockImg className="wp-block-image is-style-rounded">
+                <div className="wp-block-image is-style-rounded">
                   <figure className="aligncenter">
                     <Img src={author.avatar_urls[96]} />
                   </figure>
-                </WPBlockImg>
+                </div>
               </Grid>
               <Grid item xs={12} md={8}>
                 <Typography sx={{ mb: 2 }}>
                   <b>
                     Author:{" "}
-                    <Link link={author.link} sx={{ textDecoration: "none" }}>
+                    <Link href={author.link} underline="none">
                       {author.name}
                     </Link>
                   </b>
@@ -145,4 +141,4 @@ const View = ({ state, libraries }) => {
   );
 };
 
-export default connect(View);
+export default connect(Post);

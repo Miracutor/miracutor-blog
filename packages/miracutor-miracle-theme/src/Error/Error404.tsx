@@ -6,8 +6,8 @@ import { connect } from "frontity";
 
 const Error404 = ({ state }) => {
   return (
-    <Container>
-      <Card variant="outlined" sx={{ p: 3, textAlign: "center" }}>
+    <Container sx={{ px: 0 }}>
+      <Card variant="outlined" sx={{ py: 3, px: 1, textAlign: "center" }}>
         <Typography variant="h2">404 Error</Typography>
         <Typography variant="h3">
           The path <em>{state.router.link}</em> cannot be found.

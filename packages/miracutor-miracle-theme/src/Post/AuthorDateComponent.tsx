@@ -5,7 +5,7 @@ import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import CalendarTodayRoundedIcon from "@mui/icons-material/CalendarTodayRounded";
 import dayjs from "dayjs";
 
-const ViewAuthorDate = ({ authorName, date }) => {
+const AuthorDateComponent = ({ authorName, date }) => {
   const formattedDate = dayjs(date).format("DD MMMM YYYY");
 
   return (
@@ -25,4 +25,4 @@ const ViewAuthorDate = ({ authorName, date }) => {
   );
 };
 
-export default ViewAuthorDate;
+export default AuthorDateComponent;

@@ -7,10 +7,9 @@ import Link from "@mui/material/Link";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import SidebarCard from "./SidebarCard";
+import SearchCard from "./SearchCard";
 
-const Sidebar = (props) => {
-  const { archives, description, social, title } = props;
-
+const Sidebar = () => {
   return (
     <Grid item xs={12} md={4}>
       <SidebarCard title={"Disclaimer"} bgColor={"grey.300"}>
@@ -22,22 +21,12 @@ const Sidebar = (props) => {
           The translations are owned by the original translators.
         </Typography>
       </SidebarCard>
-      {/* <SidebarCard>
-        <Timeline
-          dataSource={{
-            sourceType: "profile",
-            screenName: "miracutor",
-          }}
-          options={{
-            height: "400",
-          }}
-        />
-      </SidebarCard> */}
+      <SearchCard />
       <SidebarCard title={"Social"}>
         <Link
           display="block"
           variant="body1"
-          link={"https://www.twitter.com/miracutor"}
+          href={"https://www.twitter.com/miracutor"}
           sx={{ mb: 0.5 }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
@@ -48,7 +37,7 @@ const Sidebar = (props) => {
         <Link
           display="block"
           variant="body1"
-          link={"https://www.github.com/Miracutor"}
+          href={"https://www.github.com/Miracutor"}
           sx={{ mb: 0.5 }}
         >
           <Stack direction="row" spacing={1} alignItems="center">

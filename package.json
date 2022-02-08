@@ -9,6 +9,11 @@
   "engines": {
     "npm": ">=7.0.0"
   },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "maintained node versions"
+  ],
   "scripts": {
     "dev": "frontity dev",
     "build": "frontity build",
@@ -20,16 +25,21 @@
     "@frontity/html2react": "^1.7.0",
     "@frontity/tiny-router": "^1.4.4",
     "@frontity/wp-source": "^1.11.7",
-    "@mui/icons-material": "^5.1.1",
-    "@mui/material": "^5.1.1",
-    "@mui/styles": "^5.1.1",
+    "@mui/icons-material": "^5.2.5",
+    "@mui/material": "^5.2.8",
+    "@mui/styles": "^5.2.3",
+    "css-mediaquery": "^0.1.2",
     "dayjs": "^1.10.7",
     "disqus-react": "^1.1.2",
     "frontity": "^1.17.1",
     "material-ui-popup-state": "^2.0.0",
-    "miracutor-miracle-theme": "file:packages/miracutor-miracle-theme"
+    "miracutor-miracle-theme": "file:packages/miracutor-miracle-theme",
+    "miracutor-miracle-theme-ts": "file:packages/miracutor-miracle-theme-ts",
+    "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
-    "prettier": "2.4.1"
+    "@types/css-mediaquery": "^0.1.1",
+    "@types/ua-parser-js": "^0.7.36",
+    "prettier": "2.5.1"
   }
 }
