@@ -10,22 +10,6 @@ const settings = {
       menu: [
         { name: "Home", link: "/", list: [] },
         {
-          name: "Library",
-          link: "/library",
-          list: [
-            {
-              name: "Is it Tough Being a Friend?",
-              link: "/library/is-it-tough-being-a-friend",
-              list: [],
-            },
-            {
-              name: "Yumemiru Danshi wa Genjitsushugisha",
-              link: "/library/yumemiru-danshi-wa-genjitsushugisha",
-              list: [],
-            },
-          ],
-        },
-        {
           name: "Translations",
           link: "/translations",
           list: [
@@ -58,6 +42,7 @@ const settings = {
             },
           ],
         },
+        { name: "Portfolio", link: "/portfolio", list: [] },
         { name: "Contact", link: "/contact-me", list: [] },
         { name: "About", link: "/about", list: [] },
       ],
