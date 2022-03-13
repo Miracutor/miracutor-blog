@@ -4,9 +4,8 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-// import GitHubIcon from "@mui/icons-material/GitHub";
-// import TwitterIcon from "@mui/icons-material/Twitter";
-import Icon from '@mui/material/Icon';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import SidebarCard from "./SidebarCard";
 import SearchCard from "./SearchCard";
 
@@ -31,8 +30,7 @@ const Sidebar = () => {
           sx={{ mb: 0.5 }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
-            {/* <TwitterIcon /> */}
-            <Icon>twitter</Icon>
+            <TwitterIcon />
             <span>Twitter</span>
           </Stack>
         </Link>
@@ -43,8 +41,7 @@ const Sidebar = () => {
           sx={{ mb: 0.5 }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
-            {/* <GitHubIcon /> */}
-            <Icon>github</Icon>
+            <GitHubIcon />
             <span>Github</span>
           </Stack>
         </Link>

@@ -6,8 +6,7 @@ import Typography from "@mui/material/Typography";
 import FixedScroll from "../Header/Desktop/FixedScroll";
 import Skeleton from "@mui/material/Skeleton";
 import IconButton from "@mui/material/IconButton";
-//import MenuIcon from "@mui/icons-material/Menu";
-import Icon from "@mui/material/Icon";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const LoadingHeaderDesktopItem = ({ spacing }: { spacing: number }) => (
   <Box marginX={spacing}>
@@ -45,8 +44,7 @@ const LoadingHeaderMobile = () => {
             color="inherit"
             aria-label="menu"
           >
-            {/* <MenuIcon /> */}
-            <Icon>menu</Icon>
+            <MenuIcon />
             <Typography sx={{ ml: 1 }}>LOADING</Typography>
           </IconButton>
         </Box>

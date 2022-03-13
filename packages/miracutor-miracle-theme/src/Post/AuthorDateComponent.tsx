@@ -1,9 +1,8 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-// import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
-// import CalendarTodayRoundedIcon from "@mui/icons-material/CalendarTodayRounded";
-import Icon from '@mui/material/Icon';
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
+import CalendarTodayRoundedIcon from "@mui/icons-material/CalendarTodayRounded";
 import dayjs from "dayjs";
 
 const AuthorDateComponent = ({ authorName, date }) => {
@@ -18,11 +17,9 @@ const AuthorDateComponent = ({ authorName, date }) => {
       mb={3}
       mt={2}
     >
-      {/* <PersonRoundedIcon /> */}
-      <Icon>person</Icon>
+      <PersonRoundedIcon />
       <Typography>{authorName}</Typography>
-      {/* <CalendarTodayRoundedIcon /> */}
-      <Icon>calendar_today</Icon>
+      <CalendarTodayRoundedIcon />
       <Typography>{formattedDate}</Typography>
     </Stack>
   );

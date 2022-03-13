@@ -12,9 +12,8 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import useMediaQuery from "@mui/material/useMediaQuery";
-// import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
-// import LabelRoundedIcon from "@mui/icons-material/LabelRounded";
-import Icon from '@mui/material/Icon';
+import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
+import LabelRoundedIcon from "@mui/icons-material/LabelRounded";
 import AuthorDateComponent from "./AuthorDateComponent";
 import { useCustomSsrMatchMedia } from "../utils";
 
@@ -69,8 +68,7 @@ const Post = ({ state, libraries }) => {
                   sx={{ mt: 8, mb: 2, color: "gray" }}
                 />
                 <Stack direction="row" spacing={1} mb={1}>
-                  {/* <LabelRoundedIcon /> */}
-                  <Icon>label</Icon>
+                  <LabelRoundedIcon />
                   <b>Tags:</b>
                   {tags &&
                     tags.map((t) => {
@@ -88,8 +86,7 @@ const Post = ({ state, libraries }) => {
             )}
             {data.isPost && categories && categories.length !== 0 && (
               <Stack direction="row" spacing={1}>
-                {/* <FolderRoundedIcon /> */}
-                <Icon>folder</Icon>
+                <FolderRoundedIcon />
                 <b>Categories:</b>
                 {categories &&
                   categories.map((c) => {
