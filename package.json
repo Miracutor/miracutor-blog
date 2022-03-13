@@ -25,7 +25,6 @@
     "@frontity/html2react": "^1.7.0",
     "@frontity/tiny-router": "^1.4.4",
     "@frontity/wp-source": "^1.11.7",
-    "@mui/icons-material": "^5.5.0",
     "@mui/material": "^5.5.0",
     "@mui/styles": "^5.5.0",
     "css-mediaquery": "^0.1.2",
@@ -34,7 +33,6 @@
     "frontity": "^1.17.2",
     "material-ui-popup-state": "^2.0.0",
     "miracutor-miracle-theme": "file:packages/miracutor-miracle-theme",
-    "miracutor-miracle-theme-ts": "file:packages/miracutor-miracle-theme-ts",
     "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {

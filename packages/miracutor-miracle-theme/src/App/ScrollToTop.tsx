@@ -2,7 +2,8 @@ import React from "react";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import Icon from '@mui/material/Icon';
+//import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Zoom from "@mui/material/Zoom";
 
 const ScrollToTop = () => {
@@ -32,7 +33,8 @@ const ScrollToTop = () => {
         sx={{ position: "fixed", bottom: 23, right: 25 }}
       >
         <Fab color="secondary" aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
+          {/* <KeyboardArrowUpIcon /> */}
+          <Icon>keyboard_arrow_up</Icon>
         </Fab>
       </Box>
     </Zoom>

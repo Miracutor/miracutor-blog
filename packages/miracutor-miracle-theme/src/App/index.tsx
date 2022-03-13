@@ -35,6 +35,14 @@ const App = ({ state }) => {
       <Head>
         <title>{state.frontity.title}</title>
         <meta name="description" content={state.frontity.description} />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -62,7 +70,10 @@ const App = ({ state }) => {
                     when={data.isPost || data.isPage}
                     fallback={<Loading type={data.isPage ? "PAGE" : "POST"} />}
                   />
-                  <Error404 when={data.isError} fallback={<Loading type={"PAGE"}/>} />
+                  <Error404
+                    when={data.isError}
+                    fallback={<Loading type={"PAGE"} />}
+                  />
                 </Switch>
               </Grid>
               <Sidebar />

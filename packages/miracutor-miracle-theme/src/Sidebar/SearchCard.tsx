@@ -5,7 +5,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+// import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import Icon from '@mui/material/Icon';
 
 const SearchCard = ({ state, actions, libraries }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -37,7 +38,8 @@ const SearchCard = ({ state, actions, libraries }) => {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton type="submit">
-                  <SearchOutlinedIcon />
+                  {/* <SearchOutlinedIcon /> */}
+                  <Icon>search</Icon>
                 </IconButton>
               </InputAdornment>
             ),

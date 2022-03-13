@@ -3,7 +3,8 @@ import Box from "@mui/system/Box";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+//import MenuIcon from "@mui/icons-material/Menu";
+import Icon from '@mui/material/Icon';
 import {
   usePopupState,
   bindTrigger,
@@ -54,7 +55,8 @@ const NavMobileDrawer = (props: NavMobileDrawerProps) => {
         aria-label="menu"
         {...bindTrigger(popupState)}
       >
-        <MenuIcon />
+        {/* <MenuIcon /> */}
+        <Icon>menu</Icon>
         <Typography sx={{ ml: 1 }}>MENU</Typography>
       </IconButton>
       <Drawer variant="temporary" anchor="bottom" {...DrawerPropsMenu}>

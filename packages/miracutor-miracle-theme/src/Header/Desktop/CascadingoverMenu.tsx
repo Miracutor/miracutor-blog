@@ -3,7 +3,8 @@ import { MenuProps } from "@mui/material/Menu";
 import Link from "@mui/material/Link";
 import MenuItem, { MenuItemProps } from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
-import ChevronRight from "@mui/icons-material/ChevronRight";
+import Icon from '@mui/material/Icon';
+//import ChevronRight from "@mui/icons-material/ChevronRight";
 import { PopupState } from "material-ui-popup-state/core";
 import HoverMenu from "material-ui-popup-state/HoverMenu";
 import {
@@ -65,7 +66,8 @@ const CascadingSubmenu = ({
       <Link href={props.link} color="secondary.contrastText" underline="none">
         <MenuItem {...bindHover(popupState)} {...bindFocus(popupState)}>
           <NavMenuTitle>{title}</NavMenuTitle>
-          <NavMenuArrow />
+          {/* <NavMenuArrow /> */}
+          <Icon>chevron_right</Icon>
         </MenuItem>
       </Link>
       <CascadingMenu
@@ -118,7 +120,7 @@ const NavMenuTitle = styled("span")`
   flex-grow: 1;
 `;
 
-const NavMenuArrow = styled(ChevronRight)(({ theme }) => ({
+const NavMenuArrow = styled(Icon)(({ theme }) => ({
   marginRight: theme.spacing(-1),
 }));
 
