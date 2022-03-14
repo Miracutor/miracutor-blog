@@ -27,7 +27,7 @@ const Sidebar = () => {
           display="block"
           variant="body1"
           href={"https://www.twitter.com/miracutor"}
-          sx={{ mb: 0.5 }}
+          sx={{ mb: 1 }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
             <TwitterIcon />
@@ -38,7 +38,7 @@ const Sidebar = () => {
           display="block"
           variant="body1"
           href={"https://www.github.com/Miracutor"}
-          sx={{ mb: 0.5 }}
+          sx={{ mb: 1 }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
             <GitHubIcon />

@@ -36,7 +36,7 @@ const Loading = ({ type = "POST" }: LoadingProps) => {
             [Example] So, why I still dream this?
           </Typography>
         </Skeleton>
-        <Stack
+        {isPost && <Stack
           direction="row"
           spacing={0.5}
           alignItems="center"
@@ -56,7 +56,7 @@ const Loading = ({ type = "POST" }: LoadingProps) => {
           <Skeleton>
             <Typography>29 Febuary 2020</Typography>
           </Skeleton>
-        </Stack>
+        </Stack>}
         <Skeleton variant="text" />
         <Skeleton variant="text" />
         <Skeleton variant="text" width="75%" />

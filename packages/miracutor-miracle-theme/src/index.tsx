@@ -18,7 +18,7 @@ const muiLink = {
 };
 
 export default {
-  name: "miracutor-miracle-theme-ts",
+  name: "miracutor-miracle-theme",
   roots: {
     theme: AppRoot,
   },
