@@ -148,19 +148,19 @@ const Loading = ({ type = "POST" }: LoadingProps) => {
         {type === "ARCHIVE" && (
           <React.Fragment>
             <Box sx={{ mb: 5 }}>
-              <PostSkeleton />
+              <PostSkeleton isPost />
             </Box>
             <Box sx={{ mb: 5 }}>
-              <PostSkeleton />
+              <PostSkeleton isPost />
             </Box>
             <Box sx={{ mb: 5 }}>
-              <PostSkeleton />
+              <PostSkeleton isPost />
             </Box>
             <Box sx={{ mb: 5 }}>
-              <PostSkeleton />
+              <PostSkeleton isPost />
             </Box>
             <Box sx={{ mb: 5 }}>
-              <PostSkeleton />
+              <PostSkeleton isPost />
             </Box>
           </React.Fragment>
         )}
