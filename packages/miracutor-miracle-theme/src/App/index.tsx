@@ -16,6 +16,8 @@ import NavbarItem from "../Header/NavbarItem";
 //Guttenberg block library 12.2.0
 import gutenbergStyle from "../../styles/style.css";
 import gutenbergTheme from "../../styles/theme.css";
+import roboto from "../../styles/roboto.css";
+
 import { Global, css } from "@emotion/react";
 import ScrollToTop from "./ScrollToTop";
 import { NavbarSettingsItem } from "../Header/types";
@@ -32,13 +34,10 @@ const App = ({ state }) => {
     <>
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
+      <Global styles={css(roboto)} />
       <Head>
         <title>{state.frontity.title}</title>
         <meta name="description" content={state.frontity.description} />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -47,7 +46,6 @@ const App = ({ state }) => {
           <Header
             title={state.frontity.title}
             tagline={state.frontity.description}
-            //listItems={TestData}
             userAgent={state.theme.userAgent}
             listItems={state.theme.menu.map((it: NavbarSettingsItem) =>
               NavbarItem.changeToItem(it)
