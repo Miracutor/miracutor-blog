@@ -9,7 +9,10 @@ import Divider from "@mui/material/Divider";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import NavbarItem from "./NavbarItem";
 import { useCustomSsrMatchMedia } from "../utils";
-import { LoadingHeaderDesktop, LoadingHeaderMobile } from "../Loading/LoadingHeader";
+import {
+  LoadingHeaderDesktop,
+  LoadingHeaderMobile,
+} from "../Loading/LoadingHeader";
 
 const NavDesktop = loadable(() => import("./Desktop/NavDesktop"));
 const NavMobile = loadable(() => import("./Mobile/NavMobile"));
@@ -34,14 +37,14 @@ const Header = (props: HeaderProps) => {
             <Link color={"secondary.contrastText"} underline="none" href={"/"}>
               <Typography
                 variant={fetchMobileStatus() ? "h3" : "h1"}
-                component="div"
+                component="h1"
               >
                 {props.title}
               </Typography>
             </Link>
             <Typography
               variant={fetchMobileStatus() ? "h6" : "h4"}
-              component="div"
+              component="h2"
             >
               {props.tagline}
             </Typography>
@@ -54,9 +57,15 @@ const Header = (props: HeaderProps) => {
         </Toolbar>
       </AppBar>
       {fetchMobileStatus() ? (
-        <NavMobile listItems={props.listItems} fallback={<LoadingHeaderMobile />}/>
+        <NavMobile
+          listItems={props.listItems}
+          fallback={<LoadingHeaderMobile />}
+        />
       ) : (
-        <NavDesktop listItems={props.listItems} fallback={<LoadingHeaderDesktop spacing={2}/>} />
+        <NavDesktop
+          listItems={props.listItems}
+          fallback={<LoadingHeaderDesktop spacing={2} />}
+        />
       )}
       <div id={"back-to-top-anchor"} />
     </Box>
