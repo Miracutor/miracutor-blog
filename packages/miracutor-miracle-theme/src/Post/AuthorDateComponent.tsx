@@ -4,10 +4,11 @@ import Typography from "@mui/material/Typography";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import CalendarTodayRoundedIcon from "@mui/icons-material/CalendarTodayRounded";
 import format from 'date-fns/format';
+import parseISO from "date-fns/parseISO";
 
 const AuthorDateComponent = ({ authorName, date }) => {
   //const formattedDate = dayjs(date).format("DD MMMM YYYY");
-  const formattedDate = format(date, 'DD MMMM YYYY');
+  const formattedDate = format(parseISO(date), 'dd MMMM yyyy');
 
   return (
     <Stack
