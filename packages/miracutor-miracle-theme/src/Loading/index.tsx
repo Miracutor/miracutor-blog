@@ -15,7 +15,7 @@ import { useCustomSsrMatchMedia } from "../utils";
 
 type LoadingProps = {
   when?: boolean;
-  type: "POST" | "PAGE" | "ARCHIVE";
+  type: "POST" | "PAGE" | "ARCHIVE" | "ARCHIVEPOST";
 };
 
 const Loading = ({ type = "POST" }: LoadingProps) => {
@@ -36,27 +36,29 @@ const Loading = ({ type = "POST" }: LoadingProps) => {
             [Example] So, why I still dream this?
           </Typography>
         </Skeleton>
-        {isPost && <Stack
-          direction="row"
-          spacing={0.5}
-          alignItems="center"
-          justifyContent="center"
-          mb={3}
-          mt={2}
-        >
-          <Skeleton>
-            <Icon />
-          </Skeleton>
-          <Skeleton>
-            <Typography>USER</Typography>
-          </Skeleton>
-          <Skeleton>
-            <Icon />
-          </Skeleton>
-          <Skeleton>
-            <Typography>29 Febuary 2020</Typography>
-          </Skeleton>
-        </Stack>}
+        {isPost && (
+          <Stack
+            direction="row"
+            spacing={0.5}
+            alignItems="center"
+            justifyContent="center"
+            mb={3}
+            mt={2}
+          >
+            <Skeleton>
+              <Icon />
+            </Skeleton>
+            <Skeleton>
+              <Typography>USER</Typography>
+            </Skeleton>
+            <Skeleton>
+              <Icon />
+            </Skeleton>
+            <Skeleton>
+              <Typography>29 Febuary 2020</Typography>
+            </Skeleton>
+          </Stack>
+        )}
         <Skeleton variant="text" />
         <Skeleton variant="text" />
         <Skeleton variant="text" width="75%" />
@@ -127,36 +129,44 @@ const Loading = ({ type = "POST" }: LoadingProps) => {
     </React.Fragment>
   );
 
-  return (
-    <Container sx={{ px: 0 }}>
-      {type === "POST" && (
-        <React.Fragment>
-          <PostSkeleton isPost />
-          <PostSkeletonExtras />
-        </React.Fragment>
-      )}
-      {type === "PAGE" && <PostSkeleton />}
-      {type === "ARCHIVE" && (
-        <React.Fragment>
-          <Box sx={{ mb: 5 }}>
-            <PostSkeleton />
-          </Box>
-          <Box sx={{ mb: 5 }}>
-            <PostSkeleton />
-          </Box>
-          <Box sx={{ mb: 5 }}>
-            <PostSkeleton />
-          </Box>
-          <Box sx={{ mb: 5 }}>
-            <PostSkeleton />
-          </Box>
-          <Box sx={{ mb: 5 }}>
-            <PostSkeleton />
-          </Box>
-        </React.Fragment>
-      )}
-    </Container>
-  );
+  if (type === "ARCHIVEPOST") {
+    return (
+      <Box sx={{ mb: 5 }}>
+        <PostSkeleton />
+      </Box>
+    );
+  } else {
+    return (
+      <Container sx={{ px: 0 }}>
+        {type === "POST" && (
+          <React.Fragment>
+            <PostSkeleton isPost />
+            <PostSkeletonExtras />
+          </React.Fragment>
+        )}
+        {type === "PAGE" && <PostSkeleton />}
+        {type === "ARCHIVE" && (
+          <React.Fragment>
+            <Box sx={{ mb: 5 }}>
+              <PostSkeleton />
+            </Box>
+            <Box sx={{ mb: 5 }}>
+              <PostSkeleton />
+            </Box>
+            <Box sx={{ mb: 5 }}>
+              <PostSkeleton />
+            </Box>
+            <Box sx={{ mb: 5 }}>
+              <PostSkeleton />
+            </Box>
+            <Box sx={{ mb: 5 }}>
+              <PostSkeleton />
+            </Box>
+          </React.Fragment>
+        )}
+      </Container>
+    );
+  }
 };
 
 export default connect(Loading);

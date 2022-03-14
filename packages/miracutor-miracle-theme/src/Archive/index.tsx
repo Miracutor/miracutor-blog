@@ -1,6 +1,5 @@
 import React from "react";
 import { connect, decode, loadable } from "frontity";
-import useInView from "@frontity/hooks/use-in-view";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
@@ -11,7 +10,7 @@ import Container from "@mui/material/Container";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import AuthorDateComponent from "../Post/AuthorDateComponent";
 import Pagination from "../Pagination";
-import { useCustomSsrMatchMedia } from "../utils";
+import { useCustomSsrMatchMedia, WrapInView } from "../utils";
 import Loading from "../Loading";
 
 const FeaturedMedia = loadable(() => import("../FeaturedMedia"));
@@ -24,11 +23,9 @@ const PostArchive = (
   author: any,
   Html2React: any
 ) => {
-  const { ref, inView } = useInView();
-
   return (
-    <Box ref={ref} sx={{ mb: 5 }} key={item.id}>
-      {inView ? (
+    <WrapInView key={item.id} fallback={<Loading type={"ARCHIVEPOST"} />}>
+      <Box sx={{ mb: 5 }}>
         <Card variant="outlined" sx={{ py: 3, px: 1 }}>
           {media && <CardMedia component={FeaturedMedia} media={media} />}
           <CardContent>
@@ -45,10 +42,8 @@ const PostArchive = (
             <Html2React html={post.content.rendered} />
           </CardContent>
         </Card>
-      ) : (
-        <Loading type={"POST"} />
-      )}
-    </Box>
+      </Box>
+    </WrapInView>
   );
 };
 

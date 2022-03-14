@@ -1,5 +1,7 @@
 import parser from "ua-parser-js";
 import mediaQuery from "css-mediaquery";
+import useInView from "@frontity/hooks/use-in-view";
+import { Box } from "@mui/material";
 
 const useCustomSsrMatchMedia = (userAgent: string) => {
   const deviceType = parser(userAgent).device.type || "desktop";
@@ -15,4 +17,15 @@ const useCustomSsrMatchMedia = (userAgent: string) => {
   return { ssrMatchMedia };
 };
 
-export { useCustomSsrMatchMedia };
+const WrapInView = ({
+  children,
+  fallback,
+}: {
+  children: React.ReactNode;
+  fallback: React.ReactNode;
+}) => {
+  const { ref, inView } = useInView({ triggerOnce: true });
+  return <Box ref={ref}>{inView ? children : fallback}</Box>;
+};
+
+export { useCustomSsrMatchMedia, WrapInView };
