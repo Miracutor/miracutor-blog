@@ -3,7 +3,7 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "github:Miracutor/now-builder"
+        "use": "git://github.com/Miracutor/now-builder.git"
       }
     ]
   }
