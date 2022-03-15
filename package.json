@@ -6,9 +6,6 @@
   "keywords": [
     "frontity"
   ],
-  "engines": {
-    "node": "14.x"
-  },
   "browserslist": [
     "defaults",
     "not IE 11",
