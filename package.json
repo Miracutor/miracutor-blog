@@ -6,9 +6,6 @@
   "keywords": [
     "frontity"
   ],
-  "engines": {
-    "node": "14.x"
-  },
   "browserslist": [
     "defaults",
     "not IE 11",
@@ -41,6 +38,7 @@
   "devDependencies": {
     "@types/css-mediaquery": "^0.1.1",
     "@types/ua-parser-js": "^0.7.36",
+    "compression-webpack-plugin": "^6.1.1",
     "prettier": "2.5.1"
   }
 }
