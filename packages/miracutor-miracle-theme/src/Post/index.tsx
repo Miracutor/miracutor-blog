@@ -15,7 +15,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
 import LabelRoundedIcon from "@mui/icons-material/LabelRounded";
 import AuthorDateComponent from "./AuthorDateComponent";
-import { useCustomSsrMatchMedia } from "../utils";
+import { useCustomSsrMatchMedia, WrapInView } from "../utils";
 
 const DiscussionEmbed = loadable(() => import("disqus-react"), {
   resolveComponent: (components) => components.DiscussionEmbed,
@@ -35,15 +35,20 @@ const Post = ({ state, libraries }) => {
   const categories =
     post.categories &&
     post.categories.map((catId: number) => allCategories[catId]);
-  const postTitle = decode(post.title.rendered.replace("&nbsp;", " "));/*workaround*/
+  const postTitle = decode(
+    post.title.rendered.replace("&nbsp;", " ")
+  ); /*workaround*/
 
   const { ssrMatchMedia } = useCustomSsrMatchMedia(state.theme.userAgent);
-  const fetchMobileStatus = () => useMediaQuery("(max-width:768px)", { ssrMatchMedia });
+  const fetchMobileStatus = () =>
+    useMediaQuery("(max-width:768px)", { ssrMatchMedia });
 
   return (
     <>
       <Head>
-        <title>{postTitle} – {state.frontity.title}</title>
+        <title>
+          {postTitle} – {state.frontity.title}
+        </title>
       </Head>
       <Container sx={{ px: 0 }}>
         <Card variant="outlined" sx={{ py: 3, px: 1 }}>
@@ -126,14 +131,16 @@ const Post = ({ state, libraries }) => {
         )}
         {data.isPost && (
           <Card variant="outlined" sx={{ p: 3, mt: 2 }}>
-            <DiscussionEmbed
-              shortname="miracle-executors"
-              config={{
-                url: "https://miracutor.vercel.app/" + state.router.link,
-                identifier: String(data.id),
-                title: decode(post.title.rendered.replace("&nbsp;", " ")),
-              }}
-            />{" "}
+            <WrapInView>
+              <DiscussionEmbed
+                shortname="miracle-executors"
+                config={{
+                  url: "https://miracutor.vercel.app/" + state.router.link,
+                  identifier: String(data.id),
+                  title: decode(post.title.rendered.replace("&nbsp;", " ")),
+                }}
+              />
+            </WrapInView>
           </Card>
         )}
       </Container>

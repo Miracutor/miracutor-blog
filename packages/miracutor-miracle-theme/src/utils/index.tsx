@@ -22,10 +22,10 @@ const WrapInView = ({
   fallback,
 }: {
   children: React.ReactNode;
-  fallback: React.ReactNode;
+  fallback?: React.ReactNode;
 }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
-  return <Box ref={ref}>{inView ? children : fallback}</Box>;
+  return <Box ref={ref}>{inView ? children : fallback || null}</Box>;
 };
 
 export { useCustomSsrMatchMedia, WrapInView };
