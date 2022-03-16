@@ -13,10 +13,15 @@ import theme from "../theme";
 import Header from "../Header";
 import NavbarItem from "../Header/NavbarItem";
 
-//Guttenberg block library 12.2.0
+// Guttenberg block library 12.2.0
 import gutenbergStyle from "../../styles/style.css";
 import gutenbergTheme from "../../styles/theme.css";
-import roboto from "../../styles/roboto.css";
+
+// Roboto fonts for Material UI
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 import { Global, css } from "@emotion/react";
 import ScrollToTop from "./ScrollToTop";
@@ -34,7 +39,6 @@ const App = ({ state }) => {
     <>
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
-      <Global styles={css(roboto)} />
       <Head>
         <title>{state.frontity.title}</title>
         <meta name="description" content={state.frontity.description} />
