@@ -15,7 +15,7 @@ export const webpack = ({ config, mode }) => {
         },
         threshold: 10240,
         minRatio: 0.8,
-        deleteOriginalAssets: false,
+        deleteOriginalAssets: true,
       })
     );
   }
