@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/css-mediaquery": "^0.1.1",
+    "@types/react-dom": "^17.0.13",
     "@types/ua-parser-js": "^0.7.36",
     "prettier": "2.5.1"
   }
