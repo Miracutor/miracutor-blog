@@ -37,7 +37,7 @@ export default {
         libraries.frontity.render = ({ App }) => {
           const sheets = new ServerStyleSheets();
 
-          const html = ReactDOMServer.renderToNodeStream(sheets.collect(<App />));
+          const html = ReactDOMServer.renderToString(sheets.collect(<App />));
 
           // Return the `html` and the `css` collected.
           return {
