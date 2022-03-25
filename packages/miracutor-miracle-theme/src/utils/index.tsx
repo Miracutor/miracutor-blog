@@ -1,7 +1,7 @@
 import parser from "ua-parser-js";
 import mediaQuery from "css-mediaquery";
 import useInView from "@frontity/hooks/use-in-view";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 const useCustomSsrMatchMedia = (userAgent: string) => {
   const deviceType = parser(userAgent).device.type || "desktop";
