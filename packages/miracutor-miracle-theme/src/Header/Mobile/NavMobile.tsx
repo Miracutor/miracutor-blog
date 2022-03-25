@@ -5,7 +5,7 @@ import NavbarItem from "../NavbarItem";
 import NavMobileDrawer from "./NavMobileDrawer";
 
 type NavMobileProps = {
-  listItems: Array<NavbarItem>;
+  listItems: Set<NavbarItem>;
 };
 
 const NavMobile = (props: NavMobileProps) => {

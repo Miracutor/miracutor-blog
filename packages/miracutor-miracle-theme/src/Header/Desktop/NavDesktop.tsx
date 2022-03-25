@@ -7,24 +7,18 @@ import NavDesktopMenu from "./NavDesktopMenu";
 
 type NavDesktopProps = {
   spacing?: number;
-  listItems: Array<NavbarItem>;
+  listItems: Set<NavbarItem>;
 };
 
 const NavDesktop = (props: NavDesktopProps) => {
+  const list = [...props.listItems];
   return (
     <FixedScroll>
       <AppBar position={"static"} sx={{ alignItems: "center" }} elevation={0}>
         <Toolbar variant={"dense"}>
-          {props.listItems.map((item) => (
+          {list.map((item) => (
             <NavDesktopMenu
-              key={
-                "navdesktopmenu-items-" +
-                item.name +
-                "-" +
-                item.link +
-                "-" +
-                item.list.length
-              }
+              key={`navdesktopmenu-items-${item.name}-${item.link}-${item.list.size}`}
               item={item}
               spacing={props.spacing}
             />
