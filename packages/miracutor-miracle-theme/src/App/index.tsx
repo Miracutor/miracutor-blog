@@ -18,22 +18,21 @@ import gutenbergStyle from "../../styles/style.css";
 import gutenbergTheme from "../../styles/theme.css";
 
 // Roboto fonts for Material UI
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 import { Global, css } from "@emotion/react";
 import ScrollToTop from "./ScrollToTop";
 import { NavbarSettingsItem } from "../Header/types";
 
-const Archive = loadable(() => import("../Archive"));
-const Post = loadable(() => import("../Post"));
+const Archive = loadable(() => import("../Content/Archive"));
+const Post = loadable(() => import("../Content/Post"));
 const Error404 = loadable(() => import("../Error/Error404"));
 
 const App = ({ state }) => {
   const data = state.source.get(state.router.link);
-  //console.log(state.theme.menu);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import AppRoot from "./App";
 import ReactDOMServer from "react-dom/server";
 import image from "@frontity/html2react/processors/image";
-import { ServerStyleSheets } from "@mui/styles";
+import ServerStyleSheets from "@mui/styles/ServerStyleSheets";
 import Link from "@mui/material/Link";
 
 const muiLink = {

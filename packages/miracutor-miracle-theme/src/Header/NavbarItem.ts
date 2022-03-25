@@ -3,9 +3,13 @@ import { NavbarSettingsItem } from "./types";
 class NavbarItem {
   private _name: string;
   private _link: string;
-  private _list: Array<NavbarItem>;
+  private _list: Set<NavbarItem>;
 
-  constructor(name: string, link: string = "/", list: Array<NavbarItem> = []) {
+  constructor(
+    name: string,
+    link: string = "/",
+    list: Set<NavbarItem> = new Set()
+  ) {
     this._name = name;
     this._link = link;
     this._list = list;
@@ -24,11 +28,13 @@ class NavbarItem {
   }
 
   static changeToItem = (item: NavbarSettingsItem): NavbarItem => {
-    return new NavbarItem(
-      item.name,
-      item.link,
-      item.list.map((i: NavbarSettingsItem) => NavbarItem.changeToItem(i))
+    // convert NavbarSettingsItem to NavbarItem
+    const newList = new Set<NavbarItem>();
+    item.list.forEach((subItem) =>
+      newList.add(NavbarItem.changeToItem(subItem))
     );
+
+    return new NavbarItem(item.name, item.link, newList);
   };
 }
 

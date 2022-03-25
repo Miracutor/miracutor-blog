@@ -20,7 +20,7 @@ const NavMobile = loadable(() => import("./Mobile/NavMobile"));
 type HeaderProps = {
   title: string;
   tagline: string;
-  listItems: Array<NavbarItem>;
+  listItems: Set<NavbarItem>;
   mobile?: boolean;
   userAgent?: string;
 };
@@ -72,4 +72,4 @@ const Header = (props: HeaderProps) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
