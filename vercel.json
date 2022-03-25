@@ -3,7 +3,7 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "https://github.com/Miracutor/now-builder/releases/download/v1.2.1/now-builder_v1.2.1.tar.gz"
+        "use": "@frontity/now"
       }
     ]
   }
