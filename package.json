@@ -34,6 +34,8 @@
     "frontity": "^1.17.2",
     "material-ui-popup-state": "^2.0.0",
     "miracutor-miracle-theme": "file:packages/miracutor-miracle-theme",
+    "preact": "^10.6.6",
+    "preact-render-to-string": "^5.1.20",
     "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
