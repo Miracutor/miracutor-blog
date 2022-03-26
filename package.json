@@ -20,7 +20,7 @@
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
-    "@fontsource/roboto": "^4.5.3",
+    "@fontsource/roboto": "^4.5.5",
     "@frontity/core": "^1.15.1",
     "@frontity/html2react": "^1.7.0",
     "@frontity/tiny-router": "^1.4.4",
@@ -40,6 +40,6 @@
     "@types/css-mediaquery": "^0.1.1",
     "@types/react-dom": "^17.0.14",
     "@types/ua-parser-js": "^0.7.36",
-    "prettier": "2.6.0"
+    "prettier": "2.6.1"
   }
 }

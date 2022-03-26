@@ -9,7 +9,7 @@ const settings = {
     theme: {
       menu: [
         { name: "Home", link: "/", list: [] },
-		{
+        {
           name: "Library",
           link: "/library",
           list: [
