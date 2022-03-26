@@ -14,8 +14,8 @@ import Header from "../Header";
 import NavbarItem from "../Header/NavbarItem";
 
 // Guttenberg block library 12.2.0
-import gutenbergStyle from "../../styles/style.css";
-import gutenbergTheme from "../../styles/theme.css";
+import gutenbergStyle from "../../styles/style.min.css";
+import gutenbergTheme from "../../styles/theme.min.css";
 
 // Roboto fonts for Material UI
 import "@fontsource/roboto/300.css";

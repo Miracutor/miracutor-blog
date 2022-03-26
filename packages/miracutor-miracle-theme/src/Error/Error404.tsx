@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { connect } from "frontity";
 
-const Error404 = ({ state }) => {
+const Error404 = ({ state, when }) => {
   return (
     <Container sx={{ px: 0 }}>
       <Card variant="outlined" sx={{ py: 3, px: 1, textAlign: "center" }}>
