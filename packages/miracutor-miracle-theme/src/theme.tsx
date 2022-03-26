@@ -5,7 +5,7 @@ import { LinkProps } from "@frontity/components/link/types";
 import { LinkProps as MuiLinkProps } from "@mui/material/Link";
 
 const FrontityLink = React.forwardRef<
-  any,
+  never,
   Omit<LinkProps, "link"> & { href: LinkProps["link"] }
 >((props, ref) => {
   const { href, ...other } = props;

@@ -7,7 +7,7 @@ class NavbarItem {
 
   constructor(
     name: string,
-    link: string = "/",
+    link = "/",
     list: Set<NavbarItem> = new Set()
   ) {
     this._name = name;

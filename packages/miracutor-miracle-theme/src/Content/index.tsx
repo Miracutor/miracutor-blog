@@ -10,7 +10,30 @@ import Divider from "@mui/material/Divider";
 import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
 import LabelRoundedIcon from "@mui/icons-material/LabelRounded";
 import FeaturedMedia from "../FeaturedMedia";
-import AuthorDateComponent from "../Post/AuthorDateComponent";
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
+import CalendarTodayRoundedIcon from "@mui/icons-material/CalendarTodayRounded";
+import format from "date-fns/format";
+import parseISO from "date-fns/parseISO";
+
+const AuthorDateComponent = ({ authorName, date }) => {
+  const formattedDate = format(parseISO(date), "dd MMMM yyyy");
+
+  return (
+    <Stack
+      direction="row"
+      spacing={1}
+      alignItems="center"
+      justifyContent="center"
+      mb={3}
+      mt={2}
+    >
+      <PersonRoundedIcon />
+      <Typography>{authorName}</Typography>
+      <CalendarTodayRoundedIcon />
+      <Typography>{formattedDate}</Typography>
+    </Stack>
+  );
+};
 
 type ContentProps = {
   title: string;
@@ -50,7 +73,12 @@ const Content = ({
             </Typography>
           </Link>
         ) : (
-          <Typography variant={mobileStatus ? "h5" : "h4"}>
+          <Typography
+            variant={mobileStatus ? "h5" : "h4"}
+            textAlign={"center"}
+            color={"secondary"}
+            gutterBottom
+          >
             {decode(title.replace("&nbsp;", " "))}
           </Typography>
         )}

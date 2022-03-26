@@ -7,7 +7,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
-const SearchCard = ({ state, actions, libraries }) => {
+const SearchCard = ({ actions, libraries }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

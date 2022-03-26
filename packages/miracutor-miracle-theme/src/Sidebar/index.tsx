@@ -1,5 +1,4 @@
 import React from "react";
-import { loadable } from "frontity";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
