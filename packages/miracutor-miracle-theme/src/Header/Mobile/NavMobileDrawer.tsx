@@ -24,7 +24,7 @@ const NavMobileDrawer = (props: NavMobileDrawerProps) => {
     variant: "popover",
   });
 
-  const renderItemsFromList = (nvItem: NavbarItem, level: number = 0) => {
+  const renderItemsFromList = (nvItem: NavbarItem, level = 0) => {
     return (
       <NavMobileMenuItem
         key={`nav-mobile-menu-item-${nvItem.name}${nvItem.list.size}${nvItem.link}`}

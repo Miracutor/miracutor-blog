@@ -5,8 +5,8 @@ import Box from "@mui/system/Box";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useCustomSsrMatchMedia } from "../utils";
-import { usePostSkeleton } from "./usePostSkeleton";
-import { usePostSkeletonExtras } from "./usePostSkeletonExtras";
+import PostSkeleton from "./PostSkeleton";
+import PostSkeletonExtras from "./PostSkeletonExtras";
 
 type LoadingProps = {
   when?: boolean;
@@ -19,14 +19,10 @@ const Loading = ({ type = "POST" }: LoadingProps) => {
   const fetchMobileStatus = () =>
     useMediaQuery("(max-width:768px)", { ssrMatchMedia });
 
-  const PostSkeleton = usePostSkeleton(fetchMobileStatus());
-
-  const PostSkeletonExtras = usePostSkeletonExtras();
-
   if (type === "ARCHIVEPOST") {
     return (
       <Box sx={{ mb: 5 }}>
-        <PostSkeleton />
+        <PostSkeleton mobileStatus={fetchMobileStatus()} />
       </Box>
     );
   } else {
@@ -34,18 +30,18 @@ const Loading = ({ type = "POST" }: LoadingProps) => {
       <Container sx={{ px: 0 }}>
         {type === "POST" && (
           <React.Fragment>
-            <PostSkeleton isPost />
+            <PostSkeleton isPost mobileStatus={fetchMobileStatus()} />
             <PostSkeletonExtras />
           </React.Fragment>
         )}
-        {type === "PAGE" && <PostSkeleton />}
+        {type === "PAGE" && <PostSkeleton mobileStatus={fetchMobileStatus()} />}
         {type === "ARCHIVE" && (
           <Stack direction="column" spacing={5}>
-            <PostSkeleton />
-            <PostSkeleton />
-            <PostSkeleton />
-            <PostSkeleton />
-            <PostSkeleton />
+            <PostSkeleton mobileStatus={fetchMobileStatus()} />
+            <PostSkeleton mobileStatus={fetchMobileStatus()} />
+            <PostSkeleton mobileStatus={fetchMobileStatus()} />
+            <PostSkeleton mobileStatus={fetchMobileStatus()} />
+            <PostSkeleton mobileStatus={fetchMobileStatus()} />
           </Stack>
         )}
       </Container>

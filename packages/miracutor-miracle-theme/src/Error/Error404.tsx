@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { connect } from "frontity";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Error404 = ({ state, when }) => {
   return (
     <Container sx={{ px: 0 }}>

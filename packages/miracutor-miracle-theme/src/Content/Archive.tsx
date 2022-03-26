@@ -8,7 +8,7 @@ import { useCustomSsrMatchMedia, WrapInView } from "../utils";
 import Loading from "../Loading";
 import Content from ".";
 
-const Archive = ({ state, actions, libraries, when }) => {
+const Archive = ({ state, libraries, when }) => {
   const data = state.source.get(state.router.link);
   const Html2React = libraries.html2react.Component;
 

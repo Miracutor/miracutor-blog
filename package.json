@@ -14,7 +14,8 @@
   "scripts": {
     "dev": "frontity dev",
     "build": "frontity build",
-    "serve": "frontity serve"
+    "serve": "frontity serve",
+    "eslint": "eslint"
   },
   "prettier": {},
   "dependencies": {
@@ -40,6 +41,11 @@
     "@types/css-mediaquery": "^0.1.1",
     "@types/react-dom": "^17.0.14",
     "@types/ua-parser-js": "^0.7.36",
-    "prettier": "2.6.1"
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "2.6.1",
+    "typescript": "^4.6.3"
   }
 }

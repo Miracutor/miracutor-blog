@@ -18,7 +18,7 @@ import {
 type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 type HoverMenuProps = Override<MenuProps, { open?: boolean }>;
 
-type CascadingMenuItemProps = MenuItemProps & { onClick?: Function };
+type CascadingMenuItemProps = MenuItemProps & { onClick?: () => void };
 type CascadingSubmenuProps = HoverMenuProps & {
   title: string;
   popupId: string;

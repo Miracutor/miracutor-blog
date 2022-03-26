@@ -15,6 +15,7 @@ const DiscussionEmbed = loadable(() => import("disqus-react"), {
   resolveComponent: (components) => components.DiscussionEmbed,
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Post = ({ state, libraries, when }) => {
   const data = state.source.get(state.router.link);
   const post = state.source[data.type][data.id];
