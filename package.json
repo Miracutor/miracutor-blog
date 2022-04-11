@@ -6,11 +6,7 @@
   "keywords": [
     "frontity"
   ],
-  "browserslist": [
-    "defaults",
-    "not IE 11",
-    "maintained node versions"
-  ],
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "dev": "frontity dev",
     "build": "frontity build",
