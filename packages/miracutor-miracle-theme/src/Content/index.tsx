@@ -93,7 +93,7 @@ const Content = ({
               <LabelRoundedIcon />
               <b>Tags:</b>
               {postTags &&
-                postTags.length === 0 &&
+                postTags.length !== 0 &&
                 postTags.map((t) => (
                   <Link key={`tag-${t.name}-${t.link}`} href={t.link}>
                     {decode(t.name)}
@@ -114,7 +114,7 @@ const Content = ({
                     </Link>
                   );
                 })}
-              {postCategories.length !== 0 && "None"}
+              {postCategories.length === 0 && "None"}
             </Stack>
           </>
         )}
