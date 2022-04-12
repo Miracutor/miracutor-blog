@@ -32,4 +32,4 @@ const PostSkeletonExtras = () => (
   </React.Fragment>
 );
 
-export default PostSkeletonExtras;
+export default React.memo(PostSkeletonExtras);

@@ -3,29 +3,19 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Stack from "@mui/material/Stack";
 import Skeleton from "@mui/material/Skeleton";
-import Typography from "@mui/material/Typography";
-import Icon from "@mui/material/Icon";
 import Divider from "@mui/material/Divider";
 
 const PostSkeleton = ({
   isPost = false,
-  mobileStatus,
+  isArchive = false,
 }: {
   isPost?: boolean;
-  mobileStatus: boolean;
+  isArchive?: boolean;
 }) => (
   <Card variant="outlined" sx={{ py: 3, px: 1 }}>
     <CardContent>
-      <Skeleton width="100%">
-        <Typography
-          variant={mobileStatus ? "h5" : "h4"}
-          textAlign={"center"}
-          gutterBottom
-        >
-          [Example] So, why I still dream this?
-        </Typography>
-      </Skeleton>
-      {isPost && (
+      <Skeleton variant="text" width="100%" height={50} />
+      {(isArchive || isPost) && (
         <Stack
           direction="row"
           spacing={0.5}
@@ -34,18 +24,10 @@ const PostSkeleton = ({
           mb={3}
           mt={2}
         >
-          <Skeleton>
-            <Icon />
-          </Skeleton>
-          <Skeleton>
-            <Typography>USER</Typography>
-          </Skeleton>
-          <Skeleton>
-            <Icon />
-          </Skeleton>
-          <Skeleton>
-            <Typography>29 Febuary 2020</Typography>
-          </Skeleton>
+          <Skeleton variant="rectangular" width={25} height={25} />
+          <Skeleton variant="text" width={100} />
+          <Skeleton variant="rectangular" width={25} height={25} />
+          <Skeleton variant="text" width={100} />
         </Stack>
       )}
       <Skeleton variant="text" />
@@ -63,26 +45,16 @@ const PostSkeleton = ({
         <React.Fragment>
           <Divider variant={"middle"} sx={{ mt: 8, mb: 2, color: "gray" }} />
           <Stack direction="row" spacing={1} mb={1}>
-            <Skeleton>
-              <Typography>USER</Typography>
-            </Skeleton>
-            <Skeleton>
-              <Typography>USER</Typography>
-            </Skeleton>
-            <Skeleton>
-              <Typography>USER</Typography>
-            </Skeleton>
+            <Skeleton variant="rectangular" width={25} height={25} />
+            <Skeleton variant="text" width={80} />
+            <Skeleton variant="text" width={50} />
+            <Skeleton variant="text" width={50} />
           </Stack>
           <Stack direction="row" spacing={1}>
-            <Skeleton>
-              <Typography>USER</Typography>
-            </Skeleton>
-            <Skeleton>
-              <Typography>USER</Typography>
-            </Skeleton>
-            <Skeleton>
-              <Typography>USER</Typography>
-            </Skeleton>
+            <Skeleton variant="rectangular" width={25} height={25} />
+            <Skeleton variant="text" width={80} />
+            <Skeleton variant="text" width={50} />
+            <Skeleton variant="text" width={50} />
           </Stack>
         </React.Fragment>
       )}
@@ -90,4 +62,4 @@ const PostSkeleton = ({
   </Card>
 );
 
-export default PostSkeleton;
+export default React.memo(PostSkeleton);
