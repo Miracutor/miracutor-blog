@@ -28,4 +28,16 @@ const WrapInView = ({
   return <Box ref={ref}>{inView ? children : fallback || null}</Box>;
 };
 
-export { useCustomSsrMatchMedia, WrapInView };
+// A function to check if the path is listing post with same tags or categories.
+const isListing = (path: string): { isTag: boolean; isCategory: boolean } => {
+  const pathArray = path.split("/");
+  if (pathArray[1] === "tag") {
+    return { isTag: true, isCategory: false };
+  }
+  if (pathArray[1] === "category") {
+    return { isTag: false, isCategory: true };
+  }
+  return { isTag: false, isCategory: false };
+};
+
+export { useCustomSsrMatchMedia, WrapInView, isListing };
