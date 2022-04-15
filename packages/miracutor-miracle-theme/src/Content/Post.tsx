@@ -7,8 +7,8 @@ import Card from "@mui/material/Card";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useCustomSsrMatchMedia } from "../utils";
+// import useMediaQuery from "@mui/material/useMediaQuery";
+// import { useCustomSsrMatchMedia } from "../utils";
 import Content from ".";
 
 const DiscussionEmbed = loadable(() => import("disqus-react"), {
@@ -33,10 +33,6 @@ const Post = ({ state, libraries, when }) => {
     post.title.rendered.replace("&nbsp;", " ")
   ); /*workaround*/
 
-  const { ssrMatchMedia } = useCustomSsrMatchMedia(state.theme.userAgent);
-  const fetchMobileStatus = () =>
-    useMediaQuery("(max-width:768px)", { ssrMatchMedia });
-
   return (
     <>
       <Head>
@@ -57,7 +53,6 @@ const Post = ({ state, libraries, when }) => {
             postCategories={data.isPost && categories}
             Html2React={Html2React}
             htmlContent={post.content.rendered}
-            mobileStatus={fetchMobileStatus()}
           />
           {data.isPost && (
             <Card variant="outlined" sx={{ p: 3, bgcolor: "grey.300" }}>

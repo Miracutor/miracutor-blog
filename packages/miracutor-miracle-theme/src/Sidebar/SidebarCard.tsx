@@ -6,9 +6,13 @@ type SidebarCardProps = {
   title: string;
   bgColor?: string;
   children?: React.ReactNode;
-}
+};
 
-const SidebarCard = ({ title, bgColor="white", children }: SidebarCardProps) => {
+const SidebarCard = ({
+  title,
+  bgColor = "white",
+  children,
+}: SidebarCardProps) => {
   return (
     <Card sx={{ p: 2, bgcolor: bgColor, mb: 2 }}>
       {title && (
