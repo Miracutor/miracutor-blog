@@ -42,6 +42,7 @@ const App = ({ state }) => {
       <Head>
         <title>{state.frontity.title}</title>
         <meta name="description" content={state.frontity.description} />
+        <meta name="google-site-verification" content=${{ env.GOOGLE_SEARCH_CONSOLE }} />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
