@@ -5,6 +5,7 @@ import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import { ThemeProvider } from "@mui/material/styles";
+require('dotenv').config();
 
 import MobileProvider from "../Context/MobileProvider";
 import Footer from "../Footer";
