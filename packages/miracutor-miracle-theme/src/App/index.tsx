@@ -1,5 +1,4 @@
 import React from "react";
-import 'dotenv/config';
 import { connect, Head, loadable } from "frontity";
 import Switch from "@frontity/components/switch";
 import Container from "@mui/material/Container";
