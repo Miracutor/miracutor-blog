@@ -1,6 +1,4 @@
 import React from "react";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require('dotenv').config()
 import { connect, Head, loadable } from "frontity";
 import Switch from "@frontity/components/switch";
 import Container from "@mui/material/Container";
@@ -44,7 +42,6 @@ const App = ({ state }) => {
       <Head>
         <title>{state.frontity.title}</title>
         <meta name="description" content={state.frontity.description} />
-        <meta name="google-site-verification" content={process.env.GOOGLE_SEARCH_CONSOLE} />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
