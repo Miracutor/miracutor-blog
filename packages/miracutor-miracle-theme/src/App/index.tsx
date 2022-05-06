@@ -1,11 +1,11 @@
 import React from "react";
+import 'dotenv/config';
 import { connect, Head, loadable } from "frontity";
 import Switch from "@frontity/components/switch";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import { ThemeProvider } from "@mui/material/styles";
-require('dotenv').config();
 
 import MobileProvider from "../Context/MobileProvider";
 import Footer from "../Footer";
@@ -43,7 +43,7 @@ const App = ({ state }) => {
       <Head>
         <title>{state.frontity.title}</title>
         <meta name="description" content={state.frontity.description} />
-        <meta name="google-site-verification" content=process.env.GOOGLE_SEARCH_CONSOLE />
+        <meta name="google-site-verification" content={process.env.GOOGLE_SEARCH_CONSOLE} />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -62,7 +62,22 @@ const App = ({ state }) => {
               <Grid container spacing={5} mt={-1.5}>
                 <Grid item xs={12} md={8}>
                   <Switch>
-                    {/* <Loading when={data.isFetching} type={"PAGE"} /> */}
+                  <Loading
+                      when={data.isFetching}
+                      type={"PAGE"}
+                    />
+                    <Loading
+                      when={data.isFetching && data.isPage}
+                      type={"PAGE"}
+                    />
+                    <Loading
+                      when={data.isFetching && data.isPost}
+                      type={"POST"}
+                    />
+                    <Loading
+                      when={data.isFetching && data.isArchive}
+                      type={"ARCHIVE"}
+                    />
                     <Archive
                       when={data.isArchive}
                       fallback={<Loading type={"ARCHIVE"} />}
