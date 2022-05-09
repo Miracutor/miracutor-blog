@@ -4,19 +4,19 @@ import Toolbar from "@mui/material/Toolbar";
 import NavbarItem from "../NavbarItem";
 import FixedScroll from "./FixedScroll";
 import NavDesktopMenu from "./NavDesktopMenu";
+import MappableSet from "../../utils/MappableSet";
 
 type NavDesktopProps = {
   spacing?: number;
-  listItems: Set<NavbarItem>;
+  listItems: MappableSet<NavbarItem>;
 };
 
 const NavDesktop = (props: NavDesktopProps) => {
-  const list = [...props.listItems];
   return (
     <FixedScroll>
       <AppBar position={"static"} sx={{ alignItems: "center" }} elevation={0}>
         <Toolbar variant={"dense"}>
-          {list.map((item) => (
+          {props.listItems.map((item) => (
             <NavDesktopMenu
               key={`navdesktopmenu-items-${item.name}-${item.link}-${item.list.size}`}
               item={item}

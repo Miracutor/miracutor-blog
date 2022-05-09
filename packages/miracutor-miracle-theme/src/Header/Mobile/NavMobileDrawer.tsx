@@ -11,12 +11,11 @@ import {
 } from "material-ui-popup-state/hooks";
 import NavbarItem from "../NavbarItem";
 import NavMobileMenuItem from "./NavMobileMenuItem";
+import MappableSet from "../../utils/MappableSet";
 
 type NavMobileDrawerProps = {
-  listItems: Set<NavbarItem>;
+  listItems: MappableSet<NavbarItem>;
 };
-
-const setToArray = (set: Set<NavbarItem>) => [...set];
 
 const NavMobileDrawer = (props: NavMobileDrawerProps) => {
   const popupState = usePopupState({
@@ -34,7 +33,7 @@ const NavMobileDrawer = (props: NavMobileDrawerProps) => {
         onClick={popupState.close}
       >
         {nvItem.list.size !== 0 &&
-          setToArray(nvItem.list).map((i) => renderItemsFromList(i, level + 1))}
+          nvItem.list.map((i) => renderItemsFromList(i, level + 1))}
       </NavMobileMenuItem>
     );
   };
@@ -56,7 +55,7 @@ const NavMobileDrawer = (props: NavMobileDrawerProps) => {
       </IconButton>
       <Drawer variant="temporary" anchor="bottom" {...DrawerPropsMenu}>
         {props.listItems.size !== 0 &&
-          setToArray(props.listItems).map((i) => renderItemsFromList(i))}
+          props.listItems.map((i) => renderItemsFromList(i))}
       </Drawer>
     </Box>
   );

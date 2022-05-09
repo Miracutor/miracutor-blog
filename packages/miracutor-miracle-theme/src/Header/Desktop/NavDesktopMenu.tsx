@@ -16,8 +16,6 @@ type NavDesktopMenuProps = {
   item: NavbarItem;
 };
 
-const setToArray = (set: Set<NavbarItem>) => [...set];
-
 const NavDesktopMenu = ({ spacing = 2, item }: NavDesktopMenuProps) => {
   const popupState = usePopupState({
     popupId: `navdesktop-menu-${item.name}-${item.link}`,
@@ -39,7 +37,7 @@ const NavDesktopMenu = ({ spacing = 2, item }: NavDesktopMenuProps) => {
         mode={nvItem.list.size !== 0 ? "MENU" : "LINK"}
       >
         {nvItem.list.size !== 0 &&
-          setToArray(nvItem.list).map((i) => renderItemsFromList(i))}
+          nvItem.list.map((i) => renderItemsFromList(i))}
       </NavDesktopMenuItem>
     );
   };
@@ -61,7 +59,7 @@ const NavDesktopMenu = ({ spacing = 2, item }: NavDesktopMenuProps) => {
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
-          {setToArray(item.list).map((i) => renderItemsFromList(i))}
+          {item.list.map((i) => renderItemsFromList(i))}
         </CascadingMenu>
       )}
     </Box>

@@ -1,14 +1,15 @@
+import MappableSet from "../utils/MappableSet";
 import { NavbarSettingsItem } from "./types";
 
 class NavbarItem {
   private _name: string;
   private _link: string;
-  private _list: Set<NavbarItem>;
+  private _list: MappableSet<NavbarItem>;
 
   constructor(
     name: string,
     link = "/",
-    list: Set<NavbarItem> = new Set()
+    list: MappableSet<NavbarItem> = new MappableSet<NavbarItem>()
   ) {
     this._name = name;
     this._link = link;
@@ -29,7 +30,7 @@ class NavbarItem {
 
   static changeToItem = (item: NavbarSettingsItem): NavbarItem => {
     // convert NavbarSettingsItem to NavbarItem
-    const newList = new Set<NavbarItem>();
+    const newList = new MappableSet<NavbarItem>();
     item.list.forEach((subItem) =>
       newList.add(NavbarItem.changeToItem(subItem))
     );
