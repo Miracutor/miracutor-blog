@@ -59,7 +59,7 @@ const Content = ({
   postTags,
   postCategories,
   Html2React,
-  htmlContent
+  htmlContent,
 }: ContentProps) => {
   return (
     <MobileContext.Consumer>

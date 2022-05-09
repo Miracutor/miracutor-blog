@@ -7,8 +7,6 @@ import Card from "@mui/material/Card";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-// import useMediaQuery from "@mui/material/useMediaQuery";
-// import { useCustomSsrMatchMedia } from "../utils";
 import Content from ".";
 
 const DiscussionEmbed = loadable(() => import("disqus-react"), {
