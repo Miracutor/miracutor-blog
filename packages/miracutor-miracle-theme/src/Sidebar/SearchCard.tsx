@@ -26,6 +26,7 @@ const SearchCard = ({ actions, libraries }) => {
     <SidebarCard title={"Search"}>
       <Box component="form" onSubmit={handleSubmit} noValidate>
         <TextField
+          name="q"
           label="Search anything..."
           variant="outlined"
           size="small"

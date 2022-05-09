@@ -23,4 +23,4 @@ const Loading = ({ type = "POST" }: LoadingProps) => {
   }
 };
 
-export default Loading;
+export default React.memo(Loading);
