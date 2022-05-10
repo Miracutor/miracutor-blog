@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/system/Box";
 import { FrontityMediaDetailsObject } from "./types";
-import Image from "../Reusable/Image";
+import Image from "../Image";
 
 type FeaturedMediaProps = {
   media: {
