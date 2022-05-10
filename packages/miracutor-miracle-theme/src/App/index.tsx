@@ -51,7 +51,6 @@ const App = ({ state }) => {
             <Header
               title={state.frontity.title}
               tagline={state.frontity.description}
-              userAgent={state.theme.userAgent}
               listItems={state.theme.menu.map((it: NavbarSettingsItem) =>
                 NavbarItem.changeToItem(it)
               )}
@@ -60,7 +59,22 @@ const App = ({ state }) => {
               <Grid container spacing={5} mt={-1.5}>
                 <Grid item xs={12} md={8}>
                   <Switch>
-                    {/* <Loading when={data.isFetching} type={"PAGE"} /> */}
+                  <Loading
+                      when={data.isFetching}
+                      type={"PAGE"}
+                    />
+                    <Loading
+                      when={data.isFetching && data.isPage}
+                      type={"PAGE"}
+                    />
+                    <Loading
+                      when={data.isFetching && data.isPost}
+                      type={"POST"}
+                    />
+                    <Loading
+                      when={data.isFetching && data.isArchive}
+                      type={"ARCHIVE"}
+                    />
                     <Archive
                       when={data.isArchive}
                       fallback={<Loading type={"ARCHIVE"} />}

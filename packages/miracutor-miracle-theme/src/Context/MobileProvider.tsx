@@ -13,11 +13,10 @@ export const MobileContext = React.createContext(false);
 
 const MobileProvider = ({ children, state }: Props) => {
   const { ssrMatchMedia } = useCustomSsrMatchMedia(state.theme.userAgent);
-  const fetchMobileStatus = () =>
-    useMediaQuery("(max-width:768px)", { ssrMatchMedia });
+  const fetchMobileStatus = useMediaQuery("(max-width:768px)", { ssrMatchMedia });
 
   return (
-    <MobileContext.Provider value={fetchMobileStatus()}>
+    <MobileContext.Provider value={fetchMobileStatus}>
       {children}
     </MobileContext.Provider>
   );

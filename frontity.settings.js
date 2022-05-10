@@ -64,9 +64,7 @@ const settings = {
     },
   },
   packages: [
-    {
-      name: "miracutor-miracle-theme",
-    },
+    "miracutor-miracle-theme",
     {
       name: "@frontity/wp-source",
       state: {

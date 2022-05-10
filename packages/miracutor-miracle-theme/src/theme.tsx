@@ -7,6 +7,7 @@ import { LinkProps as MuiLinkProps } from "@mui/material/Link";
 const FrontityLink = React.forwardRef<
   never,
   Omit<LinkProps, "link"> & { href: LinkProps["link"] }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 >((props, ref) => {
   const { href, ...other } = props;
   return <Link link={href} {...other} />;

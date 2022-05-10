@@ -12,6 +12,7 @@ import {
   LoadingHeaderDesktop,
   LoadingHeaderMobile,
 } from "../Loading/LoadingHeader";
+import MappableSet from "../utils/MappableSet";
 
 const NavDesktop = loadable(() => import("./Desktop/NavDesktop"));
 const NavMobile = loadable(() => import("./Mobile/NavMobile"));
@@ -19,52 +20,58 @@ const NavMobile = loadable(() => import("./Mobile/NavMobile"));
 type HeaderProps = {
   title: string;
   tagline: string;
-  listItems: Set<NavbarItem>;
-  mobile?: boolean;
-  userAgent?: string;
+  listItems: MappableSet<NavbarItem>;
 };
 const Header = (props: HeaderProps) => {
+  const setItems = new MappableSet<NavbarItem>(props.listItems);
   return (
     <MobileContext.Consumer>
-     {mobileStatus => <Box flexGrow={1}>
-        <AppBar position={"static"} elevation={0} sx={{ alignItems: "center" }}>
-          <Toolbar>
-            <Box textAlign={"center"} pt={2}>
-              <Link color={"secondary.contrastText"} underline="none" href={"/"}>
-                <Typography
-                  variant={mobileStatus ? "h3" : "h1"}
-                  component="h1"
+      {(mobileStatus) => (
+        <Box flexGrow={1}>
+          <AppBar
+            position={"static"}
+            elevation={0}
+            sx={{ alignItems: "center" }}
+          >
+            <Toolbar>
+              <Box textAlign={"center"} pt={2}>
+                <Link
+                  color={"secondary.contrastText"}
+                  underline="none"
+                  href={"/"}
                 >
-                  {props.title}
+                  <Typography
+                    variant={mobileStatus ? "h3" : "h1"}
+                    component="h1"
+                  >
+                    {props.title}
+                  </Typography>
+                </Link>
+                <Typography variant={mobileStatus ? "h6" : "h4"} component="h2">
+                  {props.tagline}
                 </Typography>
-              </Link>
-              <Typography
-                variant={mobileStatus ? "h6" : "h4"}
-                component="h2"
-              >
-                {props.tagline}
-              </Typography>
-              <Divider
-                variant={"middle"}
-                color={"white"}
-                sx={{ mt: 2, mb: 1, mx: "auto", width: "70vw" }}
-              />
-            </Box>
-          </Toolbar>
-        </AppBar>
-        {mobileStatus ? (
-          <NavMobile
-            listItems={props.listItems}
-            fallback={<LoadingHeaderMobile />}
-          />
-        ) : (
-          <NavDesktop
-            listItems={props.listItems}
-            fallback={<LoadingHeaderDesktop spacing={2} />}
-          />
-        )}
-        <div id={"back-to-top-anchor"} />
-      </Box>}
+                <Divider
+                  variant={"middle"}
+                  color={"white"}
+                  sx={{ mt: 2, mb: 1, mx: "auto", width: "70vw" }}
+                />
+              </Box>
+            </Toolbar>
+          </AppBar>
+          {mobileStatus ? (
+            <NavMobile
+              listItems={setItems}
+              fallback={<LoadingHeaderMobile />}
+            />
+          ) : (
+            <NavDesktop
+              listItems={setItems}
+              fallback={<LoadingHeaderDesktop spacing={2} />}
+            />
+          )}
+          <div id={"back-to-top-anchor"} />
+        </Box>
+      )}
     </MobileContext.Consumer>
   );
 };

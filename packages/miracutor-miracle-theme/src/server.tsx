@@ -1,23 +1,9 @@
 import AppRoot from "./App";
 import ReactDOMServer from "react-dom/server";
-import image from "@frontity/html2react/processors/image";
-import Link from "@mui/material/Link";
+import { muiLink, image } from "./processors";
 import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
 import createEmotionCache from "./createEmotionCache";
-
-const muiLink = {
-  priority: 10,
-  name: "muiLink",
-  test: ({ node }) =>
-    node.component === "a" &&
-    node.props?.href &&
-    !node.props?.href?.startsWith("#"),
-  processor: ({ node }) => {
-    node.component = Link;
-    return node;
-  },
-};
 
 export default {
   name: "miracutor-miracle-theme",

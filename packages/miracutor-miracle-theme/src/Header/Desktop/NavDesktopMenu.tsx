@@ -16,8 +16,6 @@ type NavDesktopMenuProps = {
   item: NavbarItem;
 };
 
-const setToArray = (set: Set<NavbarItem>) => [...set];
-
 const NavDesktopMenu = ({ spacing = 2, item }: NavDesktopMenuProps) => {
   const popupState = usePopupState({
     popupId: `navdesktop-menu-${item.name}-${item.link}`,
@@ -31,15 +29,15 @@ const NavDesktopMenu = ({ spacing = 2, item }: NavDesktopMenuProps) => {
           "nav-desktop-menu-item-" +
           nvItem.name +
           nvItem.link +
-          nvItem.list.size
+          nvItem.list.length()
         }
         name={nvItem.name}
         link={nvItem.link}
-        length={nvItem.list.size !== 0 && nvItem.link.length}
-        mode={nvItem.list.size !== 0 ? "MENU" : "LINK"}
+        length={nvItem.list.length() !== 0 && nvItem.list.length()}
+        mode={nvItem.list.length() !== 0 ? "MENU" : "LINK"}
       >
-        {nvItem.list.size !== 0 &&
-          setToArray(nvItem.list).map((i) => renderItemsFromList(i))}
+        {nvItem.list.length() !== 0 &&
+          nvItem.list.map((i) => renderItemsFromList(i))}
       </NavDesktopMenuItem>
     );
   };
@@ -55,13 +53,13 @@ const NavDesktopMenu = ({ spacing = 2, item }: NavDesktopMenuProps) => {
       >
         <Typography variant="h6">{item.name}</Typography>
       </Link>
-      {item.list.size !== 0 && (
+      {item.list.length() !== 0 && (
         <CascadingMenu
           popupState={popupState}
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
-          {setToArray(item.list).map((i) => renderItemsFromList(i))}
+          {item.list.map((i) => renderItemsFromList(i))}
         </CascadingMenu>
       )}
     </Box>

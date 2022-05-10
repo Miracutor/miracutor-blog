@@ -1,18 +1,27 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import Img from "@frontity/components/image";
 import Box from "@mui/system/Box";
+import { FrontityMediaDetailsObject } from "./types";
+import Image from "../Image";
 
 type FeaturedMediaProps = {
-  media: any;
+  media: {
+    title: { rendered: string };
+    media_details: FrontityMediaDetailsObject;
+    source_url: string;
+  };
 };
 
 interface FrontityMediaSizesObject {
-  source_url: string;
+  file: string;
   width: number;
+  height: number;
+  mime_type: string;
+  source_url: string;
 }
 
 const FeaturedMedia = ({ media }: FeaturedMediaProps) => {
+  //console.log(media);
   const srcset =
     Object.values<FrontityMediaSizesObject>(media.media_details.sizes)
       // Get the url and width of each size.
@@ -28,10 +37,12 @@ const FeaturedMedia = ({ media }: FeaturedMediaProps) => {
 
   return (
     <Box mb={2}>
-      <Image
+      <CardImage
         alt={media.title.rendered}
         src={media.source_url}
         srcSet={srcset}
+        width={media.media_details.width}
+        height={media.media_details.height}
       />
     </Box>
   );
@@ -39,10 +50,11 @@ const FeaturedMedia = ({ media }: FeaturedMediaProps) => {
 
 export default FeaturedMedia;
 
-const Image = styled(Img)`
+const CardImage = styled(Image)`
   margin: 0 auto;
   max-width: 100%;
   display: block;
   height: auto;
+  width: auto;
   max-height: 500px;
 `;
