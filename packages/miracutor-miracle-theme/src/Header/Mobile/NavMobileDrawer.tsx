@@ -56,7 +56,8 @@ const NavMobileDrawer = (props: NavMobileDrawerProps) => {
         <Typography sx={{ ml: 1 }}>MENU</Typography>
       </IconButton>
       <Drawer variant="temporary" anchor="bottom" {...DrawerPropsMenu}>
-        {props.listItems.length() !== 0 &&
+        {props.listItems &&
+          props.listItems.length() !== 0 &&
           props.listItems.map((i) => renderItemsFromList(i))}
       </Drawer>
     </Box>

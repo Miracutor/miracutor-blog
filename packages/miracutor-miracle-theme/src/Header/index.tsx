@@ -23,6 +23,7 @@ type HeaderProps = {
   listItems: MappableSet<NavbarItem>;
 };
 const Header = (props: HeaderProps) => {
+  const setItems = new MappableSet<NavbarItem>(props.listItems);
   return (
     <MobileContext.Consumer>
       {(mobileStatus) => (
@@ -59,12 +60,12 @@ const Header = (props: HeaderProps) => {
           </AppBar>
           {mobileStatus ? (
             <NavMobile
-              listItems={props.listItems}
+              listItems={setItems}
               fallback={<LoadingHeaderMobile />}
             />
           ) : (
             <NavDesktop
-              listItems={props.listItems}
+              listItems={setItems}
               fallback={<LoadingHeaderDesktop spacing={2} />}
             />
           )}
