@@ -1,7 +1,6 @@
 import AppRoot from "./App";
 import ReactDOMServer from "react-dom/server";
-import image from "@frontity/html2react/processors/image";
-import { muiLink } from "./processors";
+import { muiLink, image } from "./processors";
 import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
 import createEmotionCache from "./createEmotionCache";

@@ -1,8 +1,7 @@
 import App from "./App";
-import image from "@frontity/html2react/processors/image";
 import { CacheProvider } from "@emotion/react";
 import createEmotionCache from "./createEmotionCache";
-import { muiLink } from "./processors";
+import { muiLink, image } from "./processors";
 
 const cache = createEmotionCache();
 
