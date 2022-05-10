@@ -51,7 +51,6 @@ const App = ({ state }) => {
             <Header
               title={state.frontity.title}
               tagline={state.frontity.description}
-              userAgent={state.theme.userAgent}
               listItems={state.theme.menu.map((it: NavbarSettingsItem) =>
                 NavbarItem.changeToItem(it)
               )}

@@ -21,8 +21,6 @@ type HeaderProps = {
   title: string;
   tagline: string;
   listItems: MappableSet<NavbarItem>;
-  mobile?: boolean;
-  userAgent?: string;
 };
 const Header = (props: HeaderProps) => {
   return (

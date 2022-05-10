@@ -97,20 +97,20 @@ const Content = ({
                   <LabelRoundedIcon />
                   <b>Tags:</b>
                   {postTags &&
-                    postTags.length !== 0 &&
+                    postTags.size !== 0 &&
                     postTags.map((t) => (
                       <Link key={`tag-${t.name}-${t.link}`} href={t.link}>
                         {decode(t.name)}
                       </Link>
                     ))}
-                  {postTags.length === 0 && "None"}
+                  {postTags.size === 0 && "None"}
                 </Stack>
 
                 <Stack direction="row" spacing={1}>
                   <FolderRoundedIcon />
                   <b>Categories:</b>
                   {postCategories &&
-                    postCategories.length !== 0 &&
+                    postCategories.size !== 0 &&
                     postCategories.map((c) => {
                       return (
                         <Link key={`cat-${c.name}-${c.link}`} href={c.link}>
@@ -118,7 +118,7 @@ const Content = ({
                         </Link>
                       );
                     })}
-                  {postCategories.length === 0 && "None"}
+                  {postCategories.size === 0 && "None"}
                 </Stack>
               </>
             )}

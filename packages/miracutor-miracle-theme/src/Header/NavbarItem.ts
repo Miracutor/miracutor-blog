@@ -4,16 +4,16 @@ import { NavbarSettingsItem } from "./types";
 class NavbarItem {
   private _name: string;
   private _link: string;
-  private _list: MappableSet<NavbarItem>;
+  list: MappableSet<NavbarItem>;
 
   constructor(
     name: string,
     link = "/",
-    list: MappableSet<NavbarItem> = new MappableSet<NavbarItem>()
+    list: MappableSet<NavbarItem> = new MappableSet()
   ) {
     this._name = name;
     this._link = link;
-    this._list = list;
+    this.list = list;
   }
 
   get name() {
@@ -22,10 +22,6 @@ class NavbarItem {
 
   get link() {
     return this._link;
-  }
-
-  get list() {
-    return this._list;
   }
 
   static changeToItem = (item: NavbarSettingsItem): NavbarItem => {
