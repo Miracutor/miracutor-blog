@@ -1,9 +1,7 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "github:Miracutor/now-builder"
-      }
-    ]
+    "functions": {
+    "package.json": {
+      "runtime": "github:Miracutor/now-builder"
+    }
+  }
   }
